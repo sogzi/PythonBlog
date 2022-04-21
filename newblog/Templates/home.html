@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for row in Posts %}
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="image_file">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ row.Users.username}}</a>
+            <small class="text-muted">{{ row.Posts.date_posted }}</small>
+          </div>
+          <h2><a class="article-title" href="{{ url_for('postview', post_id=row.Posts.id) }}">{{ row.Posts.title }}</a></h2>
+          <p class="article-content">{{ row.Posts.content }}</p>
+        </div>
+      </article>
+    {% endfor %}
+{% endblock content %}
